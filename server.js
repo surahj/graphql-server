@@ -33,15 +33,12 @@ async function startApolloServer() {
     expressMiddleware(server, '/graphql'),
   );
 
-  await ((resolve) => httpServer.listen({ port: 3000 }, resolve));
+  await new Promise((resolve) => httpServer.listen({ port: 3000 }, resolve));
   console.log(`🚀 Server ready at http://localhost:3000`);
 }
 
-console.log(1)
 startApolloServer();
-console.log(1)
 
 app.get('/', (req, res) => {
   res.json("Welcome to Apollo Server");
 })
-console.log(1)
